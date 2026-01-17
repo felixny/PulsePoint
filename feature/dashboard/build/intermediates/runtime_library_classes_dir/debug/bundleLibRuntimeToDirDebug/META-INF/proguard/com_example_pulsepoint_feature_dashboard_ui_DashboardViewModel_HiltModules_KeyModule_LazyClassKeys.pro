@@ -1,0 +1,1 @@
+-keep,allowobfuscation,allowshrinking class com.example.pulsepoint.feature.dashboard.ui.DashboardViewModel
