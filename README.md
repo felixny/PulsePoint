@@ -2,6 +2,15 @@
 
 A high-performance, multi-module Android template demonstrating 60 FPS real-time data streaming, MVI architecture, and production-grade scalability with dynamic industry-specific UI skins.
 
+## 🎥 Demo
+
+Watch the app in action! Check out the [demo video](docs/demo.mp4) to see:
+- Real-time data streaming at 60 FPS
+- Dynamic UI skin switching (Fintech, Sports, Rewards modes)
+- Smooth animations and transitions
+- Live update notifications
+- Performance optimizations
+
 ## ✨ Features
 
 ### 🏗️ Architecture
@@ -60,6 +69,19 @@ PulsePoint/
 └── gradle/
     └── libs.versions.toml       # Version catalog for dependencies
 ```
+
+## 🎬 Visual Demo
+
+A screen recording demonstrating the app's features is available in the [`docs/`](docs/) directory:
+
+- **Demo Video**: [`docs/demo.mp4`](docs/demo.mp4) - Full demonstration of PulsePoint's real-time data streaming, dynamic UI skins, and live update notifications
+
+The demo showcases:
+- ⚡ High-frequency ticker updates (300ms intervals)
+- 🎨 Smooth mode transitions (Fintech ↔ Sports ↔ Rewards)
+- 📊 Real-time data visualization (Sparklines, Progress bars, Live badges)
+- 🔔 Live update notifications with industry-specific styles
+- ✨ Smooth animations and state transitions
 
 ## 🚀 Getting Started
 
