@@ -51,6 +51,19 @@ Switch between three industry-specific themes with smooth animations:
 - **Animated content** for value changes (slide-up/down with color flashes)
 - **Recomposition tracking** capabilities for performance profiling
 
+### 🔔 Live Update Notifications
+Real-time foreground service notifications with industry-specific styling:
+
+- **Foreground Service** that continuously syncs with dashboard data
+- **Industry-Specific Notification Styles**:
+  - **Fintech Mode**: Crypto prices with volatility badges using `BigTextStyle`
+  - **Sports Mode**: Live scores with game clock and pulsing "LIVE" indicators
+  - **Rewards Mode**: Points progress with `ProgressStyle` segments and tier milestones
+- **Promoted Ongoing Notifications** (Android 16+) with status bar chips
+- **Dynamic Status Chips**: Shows live price, score, or points in the status bar
+- **Real-time Updates**: Notifications update every second with latest ticker data
+- **Custom App Icon**: Uses your branded icon for consistent notification appearance
+
 ### 🎯 Technical Highlights
 - Kotlin 2.1.0 with modern language features
 - Android Gradle Plugin 8.8.0
@@ -67,6 +80,7 @@ PulsePoint/
 │   ├── ui/                      # Material 3 theme, design system
 │   ├── network/                 # Fake ticker provider, data models
 │   ├── data/                    # Repository layer, data flow
+│   ├── notifications/           # Live update notification service
 │   └── navigation/              # Navigation setup (future)
 ├── feature/
 │   └── dashboard/               # MVI dashboard with ticker cards
@@ -142,6 +156,8 @@ The app includes a sampling toggle (currently in repository) that can be extende
 - **Hilt** 2.57.1 for dependency injection
 - **Coroutines** & **Flow** for asynchronous data streams
 - **Lifecycle ViewModel Compose** for state management
+- **NotificationCompat** for foreground service notifications
+- **AndroidX Core** for notification channel management
 
 ### Build Tools
 - **Android Gradle Plugin** 8.8.0
@@ -178,6 +194,10 @@ TickerRepository (with optional sampling)
 DashboardViewModel (MVI state management)
     ↓
 DashboardScreen (Compose UI)
+    ↓
+LiveUpdateService (Foreground Service)
+    ↓
+PulseNotificationManager (Real-time notifications)
 ```
 
 ### Dependency Injection
