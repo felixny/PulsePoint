@@ -41,6 +41,7 @@ dependencies {
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
     implementation(project(":core:ui"))
+    implementation(project(":core:notifications"))
     kapt(libs.hilt.compiler)
 
     // Compose

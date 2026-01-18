@@ -1,0 +1,2 @@
+com.example.pulsepoint.core.notifications
+drawable ic_pulse_notification

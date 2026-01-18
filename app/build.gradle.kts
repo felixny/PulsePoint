@@ -52,10 +52,12 @@ dependencies {
     // Module dependencies
     implementation(project(":core:data"))
     implementation(project(":core:network"))
+    implementation(project(":core:notifications"))
 
     // Hilt
     implementation(libs.hilt.android)
     implementation(project(":feature:dashboard"))
+    implementation(project(":core:ui"))
     kapt(libs.hilt.compiler)
 
     implementation(libs.androidx.core.ktx)

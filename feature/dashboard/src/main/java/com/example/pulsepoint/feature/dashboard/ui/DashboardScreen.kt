@@ -41,13 +41,21 @@ import com.example.pulsepoint.feature.dashboard.model.toAppMode
 @Composable
 fun DashboardScreen(
     viewModel: DashboardViewModel = hiltViewModel(),
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    initialMode: AppConfig? = null
 ) {
     val uiState by viewModel.uiState.collectAsState()
     val uiEffect by viewModel.uiEffect.collectAsState()
 
+    // Set initial mode from intent if provided (when opened from notification)
+    LaunchedEffect(initialMode) {
+        if (initialMode != null) {
+            viewModel.handleIntent(DashboardUiIntent.ChangeMode(initialMode))
+        }
+    }
+
     // Get current mode for theme
-    val currentMode = (uiState as? DashboardUiState.Success)?.currentMode ?: AppConfig.FINTECH_MODE
+    val currentMode = (uiState as? DashboardUiState.Success)?.currentMode ?: (initialMode ?: AppConfig.FINTECH_MODE)
     val appMode = currentMode.toAppMode()
 
     // Handle UI effects (toasts, navigation, etc.)

@@ -1,9 +1,13 @@
 package com.example.pulsepoint.feature.dashboard.ui
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.pulsepoint.core.data.repository.TickerRepository
+import com.example.pulsepoint.core.notifications.LiveUpdateService
+import com.example.pulsepoint.core.ui.theme.AppMode
 import com.example.pulsepoint.feature.dashboard.model.AppConfig
+import com.example.pulsepoint.feature.dashboard.model.toAppMode
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -16,11 +20,13 @@ import javax.inject.Inject
 /**
  * ViewModel implementing strict MVI (Model-View-Intent) pattern.
  * Exposes a single UiState and handles UiIntent events.
+ * Integrates with LiveUpdateService for real-time notifications.
  */
 @HiltViewModel
 class DashboardViewModel @Inject constructor(
+    application: Application,
     private val tickerRepository: TickerRepository
-) : ViewModel() {
+) : AndroidViewModel(application) {
 
     private val _uiState = MutableStateFlow<DashboardUiState>(DashboardUiState.Loading)
     val uiState: StateFlow<DashboardUiState> = _uiState.asStateFlow()
@@ -32,6 +38,14 @@ class DashboardViewModel @Inject constructor(
 
     init {
         handleIntent(DashboardUiIntent.LoadTickers)
+        // Start the live update service with initial mode
+        LiveUpdateService.start(getApplication(), currentMode.toAppMode())
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        // Stop the live update service when ViewModel is cleared
+        LiveUpdateService.stop(getApplication())
     }
 
     /**
@@ -74,6 +88,8 @@ class DashboardViewModel @Inject constructor(
         if (currentState is DashboardUiState.Success) {
             _uiState.value = currentState.copy(currentMode = mode)
         }
+        // Update the service with new mode (convert AppConfig to AppMode)
+        LiveUpdateService.start(getApplication(), mode.toAppMode())
     }
 
     private fun toggleSampling() {

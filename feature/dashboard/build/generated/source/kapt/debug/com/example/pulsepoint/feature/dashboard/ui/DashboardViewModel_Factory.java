@@ -1,5 +1,6 @@
 package com.example.pulsepoint.feature.dashboard.ui;
 
+import android.app.Application;
 import com.example.pulsepoint.core.data.repository.TickerRepository;
 import dagger.internal.DaggerGenerated;
 import dagger.internal.Factory;
@@ -25,23 +26,28 @@ import javax.annotation.processing.Generated;
     "nullness:initialization.field.uninitialized"
 })
 public final class DashboardViewModel_Factory implements Factory<DashboardViewModel> {
+  private final Provider<Application> applicationProvider;
+
   private final Provider<TickerRepository> tickerRepositoryProvider;
 
-  private DashboardViewModel_Factory(Provider<TickerRepository> tickerRepositoryProvider) {
+  private DashboardViewModel_Factory(Provider<Application> applicationProvider,
+      Provider<TickerRepository> tickerRepositoryProvider) {
+    this.applicationProvider = applicationProvider;
     this.tickerRepositoryProvider = tickerRepositoryProvider;
   }
 
   @Override
   public DashboardViewModel get() {
-    return newInstance(tickerRepositoryProvider.get());
+    return newInstance(applicationProvider.get(), tickerRepositoryProvider.get());
   }
 
-  public static DashboardViewModel_Factory create(
+  public static DashboardViewModel_Factory create(Provider<Application> applicationProvider,
       Provider<TickerRepository> tickerRepositoryProvider) {
-    return new DashboardViewModel_Factory(tickerRepositoryProvider);
+    return new DashboardViewModel_Factory(applicationProvider, tickerRepositoryProvider);
   }
 
-  public static DashboardViewModel newInstance(TickerRepository tickerRepository) {
-    return new DashboardViewModel(tickerRepository);
+  public static DashboardViewModel newInstance(Application application,
+      TickerRepository tickerRepository) {
+    return new DashboardViewModel(application, tickerRepository);
   }
 }
