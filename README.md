@@ -8,12 +8,15 @@ Watch the app in action!
 
 ![PulsePoint Demo](docs/plusepoint.gif)
 
+*Full demonstration of PulsePoint's real-time data streaming, dynamic UI skins, and live update notifications*
+
 The demo showcases:
-- Real-time data streaming at 60 FPS
-- Dynamic UI skin switching (Fintech, Sports, Rewards modes)
-- Smooth animations and transitions
-- Live update notifications
-- Performance optimizations
+- ⚡ High-frequency ticker updates (300ms intervals)
+- 🎨 Smooth mode transitions (Fintech ↔ Sports ↔ Rewards)
+- 📊 Real-time data visualization (Sparklines, Progress bars, Live badges)
+- 🔔 Live update notifications with industry-specific styles
+- ✨ Smooth animations and state transitions
+- 🚀 Performance optimizations at 60 FPS
 
 ## ✨ Features
 
@@ -87,19 +90,6 @@ PulsePoint/
 └── gradle/
     └── libs.versions.toml       # Version catalog for dependencies
 ```
-
-## 🎬 Visual Demo
-
-![PulsePoint Demo](docs/plusepoint.gif)
-
-*Full demonstration of PulsePoint's real-time data streaming, dynamic UI skins, and live update notifications*
-
-The demo showcases:
-- ⚡ High-frequency ticker updates (300ms intervals)
-- 🎨 Smooth mode transitions (Fintech ↔ Sports ↔ Rewards)
-- 📊 Real-time data visualization (Sparklines, Progress bars, Live badges)
-- 🔔 Live update notifications with industry-specific styles
-- ✨ Smooth animations and state transitions
 
 ## 🚀 Getting Started
 
