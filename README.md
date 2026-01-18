@@ -4,7 +4,7 @@ A high-performance, multi-module Android template demonstrating 60 FPS real-time
 
 ## 🎥 Demo
 
-Watch the app in action! Check out the [demo video](docs/demo.mp4) to see:
+Watch the app in action! Check out the [demo GIF](docs/plusepoint.gif) to see:
 - Real-time data streaming at 60 FPS
 - Dynamic UI skin switching (Fintech, Sports, Rewards modes)
 - Smooth animations and transitions
@@ -74,7 +74,7 @@ PulsePoint/
 
 A screen recording demonstrating the app's features is available in the [`docs/`](docs/) directory:
 
-- **Demo Video**: [`docs/demo.mp4`](docs/demo.mp4) - Full demonstration of PulsePoint's real-time data streaming, dynamic UI skins, and live update notifications
+- **Demo GIF**: [`docs/plusepoint.gif`](docs/plusepoint.gif) - Full demonstration of PulsePoint's real-time data streaming, dynamic UI skins, and live update notifications
 
 The demo showcases:
 - ⚡ High-frequency ticker updates (300ms intervals)
